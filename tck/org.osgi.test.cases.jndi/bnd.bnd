@@ -1,0 +1,51 @@
+# Set javac settings from JDT prefs
+
+-conditionalpackage					= org.osgi.test.support.*
+-privatepackage						=  \
+	${p}.*
+
+Export-Package						= \
+	${p}.provider, \
+	${p}.provider.ct, \
+	${p}.service
+
+Import-Package: ${-signaturetest}, *
+
+-includeresource 					= \
+	dirObjectFactory1.jar	 , \
+	dirObjectFactoryBuilder1.jar , \
+	exceptionalInitialContextFactoryBuilder1.jar , \
+	initialContextFactory1.jar , \
+	initialContextFactory2.jar , \
+	initialContextFactory3.jar , \
+	initialContextFactoryBuilder1.jar , \
+	initialContextFactoryWithProperties.jar , \
+	initialDirContextFactory1.jar , \
+	initialDirContextFactoryBuilder1.jar , \
+	objectFactory1.jar , \
+	objectFactory2.jar , \
+	objectFactory3.jar , \
+	objectFactoryBuilder1.jar , \
+	service1.jar , \
+	service2.jar , \
+	urlContext1.jar
+	
+-signaturetest 						= org.osgi.service.jndi
+
+
+
+org.osgi.framework.bootdelegation=com.sun.*
+
+p: org.osgi.test.cases.jndi
+
+# Maven build: workspace includes replaced inline (from cnf/includes and build.bnd in osgi/osgi)
+# -make.maven, not -make: the key is a map entry and would displace
+# a project-level -make (webcontainer also builds .war recipes this
+# way). bnd merges all -make.* entries.
+-make.maven: (*).(jar); type=bnd; recipe="bnd/$1.bnd"
+
+testcases.junit3: ${classes;EXTENDS;junit.framework.TestCase;CONCRETE}
+testcases.junit4: ${classes;HIERARCHY_ANNOTATED;org.junit.Test;CONCRETE}
+testcases.junit5: ${classes;HIERARCHY_INDIRECTLY_ANNOTATED;org.junit.platform.commons.annotation.Testable;CONCRETE}
+Test-Cases: ${sort;${uniq;${testcases.junit3};${testcases.junit4};${testcases.junit5}}}
+-plugin.signaturetest: SignatureTest
