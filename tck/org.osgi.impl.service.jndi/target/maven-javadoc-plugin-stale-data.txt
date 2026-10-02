@@ -1,0 +1,74 @@
+@options
+@packages
+-classpath
+'/home/stbischof/.m2/repository/org/osgi/org.osgi.framework/1.10.0/org.osgi.framework-1.10.0.jar:/home/stbischof/git/OSGI_MIGRATE/osgi_target/org.osgi.service.jndi/api/target/org.osgi.service.jndi-1.0.2-SNAPSHOT.jar:/home/stbischof/.m2/repository/org/osgi/org.osgi.annotation.versioning/1.1.2/org.osgi.annotation.versioning-1.1.2.jar:/home/stbischof/.m2/repository/org/osgi/org.osgi.annotation.bundle/2.0.0/org.osgi.annotation.bundle-2.0.0.jar:/home/stbischof/.m2/repository/org/osgi/org.osgi.util.tracker/1.5.4/org.osgi.util.tracker-1.5.4.jar:/home/stbischof/.m2/repository/org/osgi/osgi.annotation/8.0.1/osgi.annotation-8.0.1.jar'
+-encoding
+'UTF-8'
+-protected
+--release
+8
+-sourcepath
+'/home/stbischof/git/OSGI_MIGRATE/osgi_target/org.osgi.service.jndi/tck/org.osgi.impl.service.jndi/src/main/java:/home/stbischof/git/OSGI_MIGRATE/osgi_target/org.osgi.service.jndi/tck/org.osgi.impl.service.jndi/target/generated-sources/annotations'
+-author
+-bottom
+'Copyright &#169; 1980 <a href="https://www.eclipse.org/">Eclipse Foundation</a>. All rights reserved.'
+-charset
+'UTF-8'
+-d
+'/home/stbischof/git/OSGI_MIGRATE/osgi_target/org.osgi.service.jndi/tck/org.osgi.impl.service.jndi/target/apidocs'
+-docencoding
+'UTF-8'
+-Xdoclint:none
+-doctitle
+'org.osgi.impl.service.jndi 1.0.2-SNAPSHOT API'
+-linkoffline
+'https://docs.oracle.com/javase/8/docs/api' '/home/stbischof/git/OSGI_MIGRATE/osgi_target/org.osgi.service.jndi/tck/org.osgi.impl.service.jndi/target/javadoc-bundle-options'
+-linkoffline
+'https://projects.eclipse.org/projects/technology.osgi/org.osgi.service.jndi.reactor/org.osgi.service.jndi/apidocs' '/home/stbischof/git/OSGI_MIGRATE/osgi_target/org.osgi.service.jndi/api/target/apidocs'
+-notimestamp
+-tag
+"Immutable:t:Immutable"
+-tag
+"ThreadSafe:t:ThreadSafe"
+-tag
+"NotThreadSafe:t:NotThreadSafe"
+-tag
+"GuardedBy:mf:Guarded By:"
+-tag
+"security:m:Required Permissions"
+-tag
+"noimplement:t:Consumers of this API must not implement this interface"
+-tag
+"implNote:a:Implementation Note:"
+-use
+-version
+-windowtitle
+'org.osgi.impl.service.jndi 1.0.2-SNAPSHOT API'
+org.osgi.impl.service.jndi
+/home/stbischof/.m2/repository/org/osgi/org.osgi.framework/1.10.0/org.osgi.framework-1.10.0.jar = 1607377478000
+/home/stbischof/git/OSGI_MIGRATE/osgi_target/org.osgi.service.jndi/api/target/org.osgi.service.jndi-1.0.2-SNAPSHOT.jar = 1790091051748
+/home/stbischof/.m2/repository/org/osgi/org.osgi.annotation.versioning/1.1.2/org.osgi.annotation.versioning-1.1.2.jar = 1634136809000
+/home/stbischof/.m2/repository/org/osgi/org.osgi.annotation.bundle/2.0.0/org.osgi.annotation.bundle-2.0.0.jar = 1644360733000
+/home/stbischof/.m2/repository/org/osgi/org.osgi.util.tracker/1.5.4/org.osgi.util.tracker-1.5.4.jar = 1634136906000
+/home/stbischof/.m2/repository/org/osgi/osgi.annotation/8.0.1/osgi.annotation-8.0.1.jar = 1634136808000
+/home/stbischof/git/OSGI_MIGRATE/osgi_target/org.osgi.service.jndi/tck/org.osgi.impl.service.jndi/src/main/java = 1790012127143
+/home/stbischof/git/OSGI_MIGRATE/osgi_target/org.osgi.service.jndi/tck/org.osgi.impl.service.jndi/target/generated-sources/annotations = 1790091144015
+/home/stbischof/git/OSGI_MIGRATE/osgi_target/org.osgi.service.jndi/tck/org.osgi.impl.service.jndi/target/apidocs/element-list = 1790093343265
+/home/stbischof/git/OSGI_MIGRATE/osgi_target/org.osgi.service.jndi/tck/org.osgi.impl.service.jndi/target/apidocs/overview-tree.html = 1790093343378
+/home/stbischof/git/OSGI_MIGRATE/osgi_target/org.osgi.service.jndi/tck/org.osgi.impl.service.jndi/target/apidocs/allclasses-index.html = 1790093343412
+/home/stbischof/git/OSGI_MIGRATE/osgi_target/org.osgi.service.jndi/tck/org.osgi.impl.service.jndi/target/apidocs/allpackages-index.html = 1790093343417
+/home/stbischof/git/OSGI_MIGRATE/osgi_target/org.osgi.service.jndi/tck/org.osgi.impl.service.jndi/target/apidocs/module-search-index.js = 1790093343418
+/home/stbischof/git/OSGI_MIGRATE/osgi_target/org.osgi.service.jndi/tck/org.osgi.impl.service.jndi/target/apidocs/package-search-index.js = 1790093343419
+/home/stbischof/git/OSGI_MIGRATE/osgi_target/org.osgi.service.jndi/tck/org.osgi.impl.service.jndi/target/apidocs/type-search-index.js = 1790093343420
+/home/stbischof/git/OSGI_MIGRATE/osgi_target/org.osgi.service.jndi/tck/org.osgi.impl.service.jndi/target/apidocs/member-search-index.js = 1790093343420
+/home/stbischof/git/OSGI_MIGRATE/osgi_target/org.osgi.service.jndi/tck/org.osgi.impl.service.jndi/target/apidocs/tag-search-index.js = 1790093343421
+/home/stbischof/git/OSGI_MIGRATE/osgi_target/org.osgi.service.jndi/tck/org.osgi.impl.service.jndi/target/apidocs/index-all.html = 1790093343450
+/home/stbischof/git/OSGI_MIGRATE/osgi_target/org.osgi.service.jndi/tck/org.osgi.impl.service.jndi/target/apidocs/search.html = 1790093343457
+/home/stbischof/git/OSGI_MIGRATE/osgi_target/org.osgi.service.jndi/tck/org.osgi.impl.service.jndi/target/apidocs/index.html = 1790093343462
+/home/stbischof/git/OSGI_MIGRATE/osgi_target/org.osgi.service.jndi/tck/org.osgi.impl.service.jndi/target/apidocs/help-doc.html = 1790093343537
+/home/stbischof/git/OSGI_MIGRATE/osgi_target/org.osgi.service.jndi/tck/org.osgi.impl.service.jndi/target/apidocs/stylesheet.css = 1790093343550
+/home/stbischof/git/OSGI_MIGRATE/osgi_target/org.osgi.service.jndi/tck/org.osgi.impl.service.jndi/target/apidocs/script.js = 1790093343555
+/home/stbischof/git/OSGI_MIGRATE/osgi_target/org.osgi.service.jndi/tck/org.osgi.impl.service.jndi/target/apidocs/copy.svg = 1790093343558
+/home/stbischof/git/OSGI_MIGRATE/osgi_target/org.osgi.service.jndi/tck/org.osgi.impl.service.jndi/target/apidocs/link.svg = 1790093343559
+/home/stbischof/git/OSGI_MIGRATE/osgi_target/org.osgi.service.jndi/tck/org.osgi.impl.service.jndi/target/apidocs/search.js = 1790093343566
+/home/stbischof/git/OSGI_MIGRATE/osgi_target/org.osgi.service.jndi/tck/org.osgi.impl.service.jndi/target/apidocs/search-page.js = 1790093343569

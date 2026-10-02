@@ -1,0 +1,1 @@
+typeSearchIndex = [{"p":"org.osgi.impl.service.jndi","l":"Activator"},{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"org.osgi.impl.service.jndi","l":"BuilderSupportedInitialContextFactory"},{"p":"org.osgi.impl.service.jndi","l":"FactoryManager"},{"p":"org.osgi.impl.service.jndi","l":"ServiceAwareContextFactory"}];updateSearchResults();
