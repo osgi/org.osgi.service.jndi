@@ -1,0 +1,300 @@
+<section xmlns="http://docbook.org/ns/docbook"
+         xreflabel="org.osgi.service.jndi"
+         version="5"
+         role="package"
+         xml:id="org.osgi.service.jndi">
+   <title>org.osgi.service.jndi</title>
+   <info>
+      <releaseinfo xml:id="org.osgi.service.jndi-version">Version 1.0</releaseinfo>
+      <edition xml:id="org.osgi.service.jndi-version.number">1.0</edition>
+   </info>
+   <para>
+JNDI Package Version 1.0.
+ 
+ </para>
+   <para>
+ Bundles wishing to use this package must list the package in the
+ Import-Package header of the bundle's manifest. This package has two types of
+ users: the consumers that use the API in this package and the providers that
+ implement the API in this package.
+ 
+ </para>
+   <para>
+ Example import for consumers using the API in this package:
+ </para>
+   <para>
+ {@code  Import-Package: org.osgi.service.jndi; version="[1.0,2.0)"}
+ </para>
+   <para>
+ Example import for providers implementing the API in this package:
+ </para>
+   <para>
+ {@code  Import-Package: org.osgi.service.jndi; version="[1.0,1.1)"}</para>
+   <section role="summary">
+      <title>Summary</title>
+      <itemizedlist>
+         <listitem>
+            <para>
+               <link linkend="org.osgi.service.jndi.JNDIConstants">
+                  <code>JNDIConstants</code>
+               </link> - 
+Constants for the JNDI implementation.
+   </para>
+         </listitem>
+         <listitem>
+            <para>
+               <link linkend="org.osgi.service.jndi.JNDIContextManager">
+                  <code>JNDIContextManager</code>
+               </link> - 
+This interface defines the OSGi service interface for the JNDIContextManager.
+   </para>
+         </listitem>
+         <listitem>
+            <para>
+               <link linkend="org.osgi.service.jndi.JNDIProviderAdmin">
+                  <code>JNDIProviderAdmin</code>
+               </link> - 
+This interface defines the OSGi service interface for the JNDIProviderAdmin
+ service.
+   </para>
+         </listitem>
+      </itemizedlist>
+   </section>
+   <section xreflabel="JNDIConstants"
+            role="class"
+            xml:id="org.osgi.service.jndi.JNDIConstants">
+      <title>public class JNDIConstants</title>
+      <para>
+Constants for the JNDI implementation.
+   </para>
+      <formalpara role="parameter">
+         <title>Concurrency</title>
+         <para>Immutable </para>
+      </formalpara>
+      <section xreflabel="BUNDLE_CONTEXT"
+               role="field"
+               xml:id="org.osgi.service.jndi.JNDIConstants.BUNDLE_CONTEXT">
+         <title>public static final String BUNDLE_CONTEXT = "osgi.service.jndi.bundleContext"</title>
+         <para>
+This JNDI environment property can be used by a JNDI client to indicate
+ the caller's BundleContext. This property can be set and passed to an
+ InitialContext constructor. This property is only useful in the
+ "traditional" mode of JNDI.
+   </para>
+      </section>
+      <section xreflabel="JNDI_SERVICENAME"
+               role="field"
+               xml:id="org.osgi.service.jndi.JNDIConstants.JNDI_SERVICENAME">
+         <title>public static final String JNDI_SERVICENAME = "osgi.jndi.service.name"</title>
+         <para>
+This service property is set on an OSGi service to provide a name that
+ can be used to locate the service other than the service interface name.
+   </para>
+      </section>
+      <section xreflabel="JNDI_URLSCHEME"
+               role="field"
+               xml:id="org.osgi.service.jndi.JNDIConstants.JNDI_URLSCHEME">
+         <title>public static final String JNDI_URLSCHEME = "osgi.jndi.url.scheme"</title>
+         <para>
+This service property is set by JNDI Providers that publish URL Context
+ Factories as OSGi Services. The value of this property should be the URL
+ scheme that is supported by the published service.
+   </para>
+      </section>
+   </section>
+   <section xreflabel="JNDIContextManager"
+            role="class"
+            xml:id="org.osgi.service.jndi.JNDIContextManager">
+      <title>public abstract JNDIContextManager</title>
+      <para>
+This interface defines the OSGi service interface for the JNDIContextManager.
+ 
+ This service provides the ability to create new JNDI Context instances
+ without relying on the InitialContext constructor.
+   </para>
+      <formalpara role="parameter">
+         <title>Concurrency</title>
+         <para>Thread-safe </para>
+      </formalpara>
+      <section xreflabel="newInitialContext()"
+               role="method"
+               xml:id="org.osgi.service.jndi.JNDIContextManager.newInitialContext--">
+         <title>public abstract Context newInitialContext() throws NamingException</title>
+         <para role="description">
+Creates a new JNDI initial context with the default JNDI environment
+ properties.
+   </para>
+         <formalpara role="parameter">
+            <title>Returns</title>
+            <para>an instance of javax.naming.Context</para>
+         </formalpara>
+         <formalpara role="parameter">
+            <title>Throws</title>
+            <para>
+               <code>NamingException</code>– upon any error that occurs during context
+         creation</para>
+         </formalpara>
+      </section>
+      <section xreflabel="newInitialContext(Map)"
+               role="method"
+               xml:id="org.osgi.service.jndi.JNDIContextManager.newInitialContext-Map-">
+         <title>public abstract Context newInitialContext(Map&lt;String, ?&gt; environment) throws NamingException</title>
+         <formalpara role="parameter">
+            <title>environment</title>
+            <para>JNDI environment properties specified by caller</para>
+         </formalpara>
+         <para role="description">
+Creates a new JNDI initial context with the specified JNDI environment
+ properties.
+   </para>
+         <formalpara role="parameter">
+            <title>Returns</title>
+            <para>an instance of javax.naming.Context</para>
+         </formalpara>
+         <formalpara role="parameter">
+            <title>Throws</title>
+            <para>
+               <code>NamingException</code>– upon any error that occurs during context
+         creation</para>
+         </formalpara>
+      </section>
+      <section xreflabel="newInitialDirContext()"
+               role="method"
+               xml:id="org.osgi.service.jndi.JNDIContextManager.newInitialDirContext--">
+         <title>public abstract DirContext newInitialDirContext() throws NamingException</title>
+         <para role="description">
+Creates a new initial DirContext with the default JNDI environment
+ properties.
+   </para>
+         <formalpara role="parameter">
+            <title>Returns</title>
+            <para>an instance of javax.naming.directory.DirContext</para>
+         </formalpara>
+         <formalpara role="parameter">
+            <title>Throws</title>
+            <para>
+               <code>NamingException</code>– upon any error that occurs during context
+         creation</para>
+         </formalpara>
+      </section>
+      <section xreflabel="newInitialDirContext(Map)"
+               role="method"
+               xml:id="org.osgi.service.jndi.JNDIContextManager.newInitialDirContext-Map-">
+         <title>public abstract DirContext newInitialDirContext(Map&lt;String, ?&gt; environment) throws NamingException</title>
+         <formalpara role="parameter">
+            <title>environment</title>
+            <para>JNDI environment properties specified by the caller</para>
+         </formalpara>
+         <para role="description">
+Creates a new initial DirContext with the specified JNDI environment
+ properties.
+   </para>
+         <formalpara role="parameter">
+            <title>Returns</title>
+            <para>an instance of javax.naming.directory.DirContext</para>
+         </formalpara>
+         <formalpara role="parameter">
+            <title>Throws</title>
+            <para>
+               <code>NamingException</code>– upon any error that occurs during context
+         creation</para>
+         </formalpara>
+      </section>
+   </section>
+   <section xreflabel="JNDIProviderAdmin"
+            role="class"
+            xml:id="org.osgi.service.jndi.JNDIProviderAdmin">
+      <title>public abstract JNDIProviderAdmin</title>
+      <para>
+This interface defines the OSGi service interface for the JNDIProviderAdmin
+ service.
+ 
+ This service provides the ability to resolve JNDI References in a dynamic
+ fashion that does not require calls to
+ {@code NamingManager.getObjectInstance()}. The methods of this service
+ provide similar reference resolution, but rely on the OSGi Service Registry
+ in order to find {@code ObjectFactory} instances that can convert a Reference
+ to an Object.
+ 
+ This service will typically be used by OSGi-aware JNDI Service Providers.
+   </para>
+      <formalpara role="parameter">
+         <title>Concurrency</title>
+         <para>Thread-safe </para>
+      </formalpara>
+      <section xreflabel="getObjectInstance(Object,javax.naming.Name,javax.naming.Context,Map)"
+               role="method"
+               xml:id="org.osgi.service.jndi.JNDIProviderAdmin.getObjectInstance-Object-javax.naming.Name-javax.naming.Context-Map-">
+         <title>public abstract Object getObjectInstance(Object refInfo, Name name, Context context, Map&lt;String, ?&gt; environment) throws Exception</title>
+         <formalpara role="parameter">
+            <title>refInfo</title>
+            <para>Reference info</para>
+         </formalpara>
+         <formalpara role="parameter">
+            <title>name</title>
+            <para>the JNDI name associated with this reference</para>
+         </formalpara>
+         <formalpara role="parameter">
+            <title>context</title>
+            <para>the JNDI context associated with this reference</para>
+         </formalpara>
+         <formalpara role="parameter">
+            <title>environment</title>
+            <para>the JNDI environment associated with this JNDI context</para>
+         </formalpara>
+         <para role="description">
+Resolve the object from the given reference.
+   </para>
+         <formalpara role="parameter">
+            <title>Returns</title>
+            <para>an Object based on the reference passed in, or the original
+         reference object if the reference could not be resolved.</para>
+         </formalpara>
+         <formalpara role="parameter">
+            <title>Throws</title>
+            <para>
+               <code>Exception</code>– in the event that an error occurs while attempting to
+         resolve the JNDI reference.</para>
+         </formalpara>
+      </section>
+      <section xreflabel="getObjectInstance(Object,javax.naming.Name,javax.naming.Context,Map,javax.naming.directory.Attributes)"
+               role="method"
+               xml:id="org.osgi.service.jndi.JNDIProviderAdmin.getObjectInstance-Object-javax.naming.Name-javax.naming.Context-Map-javax.naming.directory.Attributes-">
+         <title>public abstract Object getObjectInstance(Object refInfo, Name name, Context context, Map&lt;String, ?&gt; environment, Attributes attributes) throws Exception</title>
+         <formalpara role="parameter">
+            <title>refInfo</title>
+            <para>Reference info</para>
+         </formalpara>
+         <formalpara role="parameter">
+            <title>name</title>
+            <para>the JNDI name associated with this reference</para>
+         </formalpara>
+         <formalpara role="parameter">
+            <title>context</title>
+            <para>the JNDI context associated with this reference</para>
+         </formalpara>
+         <formalpara role="parameter">
+            <title>environment</title>
+            <para>the JNDI environment associated with this JNDI context</para>
+         </formalpara>
+         <formalpara role="parameter">
+            <title>attributes</title>
+            <para>the naming attributes to use when resolving this object</para>
+         </formalpara>
+         <para role="description">
+Resolve the object from the given reference.
+   </para>
+         <formalpara role="parameter">
+            <title>Returns</title>
+            <para>an Object based on the reference passed in, or the original
+         reference object if the reference could not be resolved.</para>
+         </formalpara>
+         <formalpara role="parameter">
+            <title>Throws</title>
+            <para>
+               <code>Exception</code>– in the event that an error occurs while attempting to
+         resolve the JNDI reference.</para>
+         </formalpara>
+      </section>
+   </section>
+</section>

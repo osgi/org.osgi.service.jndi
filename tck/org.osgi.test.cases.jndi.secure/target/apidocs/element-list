@@ -1,0 +1,6 @@
+org.osgi.test.cases.jndi.secure.builders
+org.osgi.test.cases.jndi.secure.factories
+org.osgi.test.cases.jndi.secure.inaccessibleBundleContext
+org.osgi.test.cases.jndi.secure.provider
+org.osgi.test.cases.jndi.secure.provider.ct
+org.osgi.test.cases.jndi.secure.tests

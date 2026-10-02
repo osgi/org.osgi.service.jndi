@@ -1,0 +1,4 @@
+org/osgi/service/jndi/package-info.class
+org/osgi/service/jndi/JNDIConstants.class
+org/osgi/service/jndi/JNDIContextManager.class
+org/osgi/service/jndi/JNDIProviderAdmin.class
