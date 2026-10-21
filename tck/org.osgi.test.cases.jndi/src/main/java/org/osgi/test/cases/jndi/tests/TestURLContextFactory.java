@@ -18,15 +18,17 @@
 
 package org.osgi.test.cases.jndi.tests;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 import java.util.Hashtable;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 
+import org.junit.jupiter.api.Test;
 import org.osgi.framework.Bundle;
 import org.osgi.test.cases.jndi.provider.CTInitialContextFactory;
-import org.osgi.test.support.compatibility.DefaultTestBundleControl;
 
 /**
  * 
@@ -36,12 +38,13 @@ import org.osgi.test.support.compatibility.DefaultTestBundleControl;
  * @author $Id$Date: 2009-07-08 13:20:41 -0400 (Wed, 08 Jul
  *          2009) $
  */
-public class TestURLContextFactory extends DefaultTestBundleControl {
+public class TestURLContextFactory extends JNDITestSupport {
 
+	@Test
 	public void testURLContextFactoryRegistration() throws Exception {
 		// Install the bundles needed for this test
-		Bundle testBundle = installBundle("urlContext1.jar");
-		Bundle factoryBundle = installBundle("initialContextFactory1.jar");
+		Bundle testBundle = installer.installBundle(context.getBundle().getEntry("urlContext1.jar"), true);
+		Bundle factoryBundle = installer.installBundle(context.getBundle().getEntry("initialContextFactory1.jar"), true);
 		// Setup the standard context that we'll be using the URL to access so
 		// that we have something to lookup
 		String testString = "test string";
@@ -50,11 +53,11 @@ public class TestURLContextFactory extends DefaultTestBundleControl {
 		Context ctx = new InitialContext(env);
 		Context urlCtx = new InitialContext();
 		try {
-			assertNotNull("The context should not be null", ctx);
+			assertThat(ctx).as("The context should not be null").isNotNull();
 			ctx.bind("testString", testString);
 			// Attempt to look up the test string
 			String result = (String) urlCtx.lookup("ct://testString");
-			assertEquals(testString, result);
+			assertThat(result).isEqualTo(testString);
 		} finally {
 			// Cleanup after the test
 			if (ctx != null) {
@@ -63,15 +66,16 @@ public class TestURLContextFactory extends DefaultTestBundleControl {
 			if (urlCtx != null) {
 				urlCtx.close();
 			}
-			uninstallBundle(factoryBundle);
-			uninstallBundle(testBundle);
+			factoryBundle.uninstall();
+			testBundle.uninstall();
 		}
 	}
 
+	@Test
 	public void testURLContextFactoryRemoval() throws Exception {
 		// Install the bundles needed for this test
-		Bundle testBundle = installBundle("urlContext1.jar");
-		Bundle factoryBundle = installBundle("initialContextFactory1.jar");
+		Bundle testBundle = installer.installBundle(context.getBundle().getEntry("urlContext1.jar"), true);
+		Bundle factoryBundle = installer.installBundle(context.getBundle().getEntry("initialContextFactory1.jar"), true);
 		// Setup the standard context that we'll be using the URL to access so
 		// that we have something to lookup
 		String testString = "test string";
@@ -80,12 +84,12 @@ public class TestURLContextFactory extends DefaultTestBundleControl {
 		Context ctx = new InitialContext(env);
 		Context urlCtx = new InitialContext();
 		try {
-			assertNotNull("The context should not be null", ctx);
+			assertThat(ctx).as("The context should not be null").isNotNull();
 			ctx.bind("testString", testString);
 			// Remove the url context jar
-			uninstallBundle(testBundle);
+			testBundle.uninstall();
 			String result = (String) urlCtx.lookup("ct://testString");
-			assertEquals(testString, result);
+			assertThat(result).isEqualTo(testString);
 		} catch (NamingException ex) {
 			// We're expecting this, since they're should be no context able to
 			// handle this url
@@ -97,7 +101,7 @@ public class TestURLContextFactory extends DefaultTestBundleControl {
 			if (ctx != null) {
 				ctx.close();
 			}
-			uninstallBundle(factoryBundle);
+			factoryBundle.uninstall();
 		}
 		failException("testURLContextFactoryRemoval failed, ", javax.naming.NamingException.class);
 	}
